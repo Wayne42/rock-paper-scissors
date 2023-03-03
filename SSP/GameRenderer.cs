@@ -1,5 +1,4 @@
 ﻿using Spectre.Console;
-using System.Net.NetworkInformation;
 
 namespace SSP
 {
@@ -85,7 +84,7 @@ namespace SSP
             AnsiConsole.MarkupLine($"[gray]You ({playerPoints}), Computer ({computerPoints}), First to reach ({pointsMax}) points. [/]");
         }
 
-        public static void PrintComputerThinking() 
+        public static void PrintComputerThinking()
         {
             _AnimateText("gray", "Computer is thinking...");
             Thread.Sleep(600);
@@ -97,27 +96,27 @@ namespace SSP
             Thread.Sleep(250);
         }
 
-        private static void _PrintAnimatedDotsNL() 
+        private static void _PrintAnimatedDotsNL()
         {
             _PrintAnimatedDots(3);
             AnsiConsole.WriteLine();
         }
         private static void _PrintAnimatedDots(int count)
         {
-            for(var i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 AnsiConsole.Markup($"[gray].[/]");
                 Thread.Sleep(100);
             }
         }
 
-        private static void _AnimateText(String color, String text) 
+        private static void _AnimateText(String color, String text)
         {
             bool isColorValid = false;
             String[] validColors = { "gray", "blue", "red", "green" };
             foreach (string item in validColors) // valid colors
             {
-                if (item.Contains(color)) 
+                if (item.Contains(color))
                 {
                     isColorValid = true;
                     break;
