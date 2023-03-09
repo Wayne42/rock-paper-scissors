@@ -44,23 +44,23 @@ namespace SSP
         {
             if (currentState == GameState.PlayerWonRound || currentState == GameState.PlayerWonGame)
             {
-                GameRenderer._PrintPlayerWonRound();
+                _PrintPlayerWonRound();
             }
             else if (currentState == GameState.ComputerWonRound || currentState == GameState.ComputerWonGame)
             {
-                GameRenderer._PrintComputerWonRound();
+                _PrintComputerWonRound();
             }
             else if (currentState == GameState.NooneWonRound)
             {
-                GameRenderer._PrintNooneWonRound();
+                _PrintNooneWonRound();
             }
             else if (currentState == GameState.PlayerWonGame)
             {
-                GameRenderer._PrintPlayerWonGame();
+                _PrintPlayerWonGame();
             }
             else
             {
-                GameRenderer._PrintComputerWonGame();
+                _PrintComputerWonGame();
             }
         }
 
