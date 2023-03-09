@@ -40,21 +40,45 @@ namespace SSP
             AnsiConsole.Write(table);
         }
 
-        public static void PrintPlayerWonRound()
+        public static void PrintGameState(GameState currentState)
+        {
+            if (currentState == GameState.PlayerWonRound || currentState == GameState.PlayerWonGame)
+            {
+                GameRenderer._PrintPlayerWonRound();
+            }
+            else if (currentState == GameState.ComputerWonRound || currentState == GameState.ComputerWonGame)
+            {
+                GameRenderer._PrintComputerWonRound();
+            }
+            else if (currentState == GameState.NooneWonRound)
+            {
+                GameRenderer._PrintNooneWonRound();
+            }
+            else if (currentState == GameState.PlayerWonGame)
+            {
+                GameRenderer._PrintPlayerWonGame();
+            }
+            else
+            {
+                GameRenderer._PrintComputerWonGame();
+            }
+        }
+
+        private static void _PrintPlayerWonRound()
         {
             String msg = _winRoundMessages[_random.Next(_winRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[green]You won the round! {msg}[/] ");
             _AnimateText("green", $"You won the round! {msg}");
         }
 
-        public static void PrintComputerWonRound()
+        private static void _PrintComputerWonRound()
         {
             String msg = _loseRoundMessages[_random.Next(_loseRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[red]You lost the round. {msg}[/] ");
             _AnimateText("red", $"You lost the round! {msg}");
         }
 
-        public static void PrintNooneWonRound()
+        private static void _PrintNooneWonRound()
         {
             String msg = _tieRoundMessages[_random.Next(_tieRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[blue]Tie! {msg}Try again![/] ");
@@ -62,13 +86,13 @@ namespace SSP
         }
 
 
-        public static void PrintPlayerWonGame()
+        private static void _PrintPlayerWonGame()
         {
             // AnsiConsole.MarkupLine($"[green]You won the Game!!![/] ");
             _AnimateText("green", $"You won the Game!!!");
         }
 
-        public static void PrintComputerWonGame()
+        private static void _PrintComputerWonGame()
         {
             // AnsiConsole.MarkupLine($"[red]You lost the Game :/ ...[/] ");
             _AnimateText("red", $"You lost the Game :/ ...");
@@ -146,5 +170,7 @@ namespace SSP
                     return "0";
             }
         }
+
+
     }
 }

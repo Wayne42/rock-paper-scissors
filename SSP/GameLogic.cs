@@ -149,6 +149,7 @@
         }
 
         // Der Computer wählt in der ersten Runde zufällig aus und behält diese Auswahl bei. Erst wenn der Computer verliert, wird die Auswahl (Stein, Schere, Papier) gewechselt.
+        // Never change a running system
         private static Move _NCARSMove()
         {
             if ((!_computerLostLastRound) && (_computerMoves.Count() > 0))
