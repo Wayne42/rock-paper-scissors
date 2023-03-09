@@ -12,24 +12,25 @@ GameLogic.InitNewGame(gameMode);
 bool playAgain = false;
 do
 {
-    GameState CurrentState;
+    GameState currentState;
     do
     {
-        var Move = GameControl.ChooseTurn();
-        CurrentState = GameLogic.NextRound(Move);
+        var move = GameControl.ChooseTurn();
+        currentState = GameLogic.NextRound(move);
 
         GameRenderer.PrintComputerThinking();
-        GameRenderer.PrintRound(Move, GameLogic.CurrentComputerMove);
+        GameRenderer.PrintRound(move, GameLogic.CurrentComputerMove);
 
-        if (CurrentState == GameState.PlayerWonRound || CurrentState == GameState.PlayerWonGame)
+
+        if (currentState == GameState.PlayerWonRound || currentState == GameState.PlayerWonGame)
         {
             GameRenderer.PrintPlayerWonRound();
         }
-        else if (CurrentState == GameState.ComputerWonRound || CurrentState == GameState.ComputerWonGame)
+        else if (currentState == GameState.ComputerWonRound || currentState == GameState.ComputerWonGame)
         {
             GameRenderer.PrintComputerWonRound();
         }
-        else if (CurrentState == GameState.NooneWonRound)
+        else if (currentState == GameState.NooneWonRound)
         {
             GameRenderer.PrintNooneWonRound();
         }
@@ -40,9 +41,9 @@ do
         GameRenderer.PrintStats(stats[0], stats[1], stats[2]);
         GameRenderer.PrintLineBreak();
 
-    } while (CurrentState == GameState.PlayerWonRound || CurrentState == GameState.ComputerWonRound || CurrentState == GameState.NooneWonRound);
+    } while (currentState == GameState.PlayerWonRound || currentState == GameState.ComputerWonRound || currentState == GameState.NooneWonRound);
 
-    if (CurrentState == GameState.PlayerWonGame)
+    if (currentState == GameState.PlayerWonGame)
     {
         GameRenderer.PrintPlayerWonGame();
     }

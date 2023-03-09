@@ -4,7 +4,7 @@ namespace SSP
 {
     class GameRenderer
     {
-        private static Random rnd = new Random();
+        private static Random _random = new Random();
         private static readonly String[] _winRoundMessages = { "Keep it up! ", "Well done! ", "Astonishing! ", "Incredible outplay! ", "Very impressive! " };
         private static readonly String[] _loseRoundMessages = { "Keep fighting! ", "Sometimes you lose some. :/ ", "Never surrender! ", "Stay determined. " };
         private static readonly String[] _tieRoundMessages = { "WOW. ", "What are the odds? ", "Astonishing! ", "Stay determined. ", "Keep fighting! " };
@@ -42,21 +42,21 @@ namespace SSP
 
         public static void PrintPlayerWonRound()
         {
-            String msg = _winRoundMessages[rnd.Next(_winRoundMessages.Count())];
+            String msg = _winRoundMessages[_random.Next(_winRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[green]You won the round! {msg}[/] ");
             _AnimateText("green", $"You won the round! {msg}");
         }
 
         public static void PrintComputerWonRound()
         {
-            String msg = _loseRoundMessages[rnd.Next(_loseRoundMessages.Count())];
+            String msg = _loseRoundMessages[_random.Next(_loseRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[red]You lost the round. {msg}[/] ");
             _AnimateText("red", $"You lost the round! {msg}");
         }
 
         public static void PrintNooneWonRound()
         {
-            String msg = _tieRoundMessages[rnd.Next(_tieRoundMessages.Count())];
+            String msg = _tieRoundMessages[_random.Next(_tieRoundMessages.Count())];
             // AnsiConsole.MarkupLine($"[blue]Tie! {msg}Try again![/] ");
             _AnimateText("blue", $"Tie! {msg}Try again!");
         }

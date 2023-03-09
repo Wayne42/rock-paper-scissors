@@ -109,11 +109,11 @@
             }
         }
 
-        private static Random rnd = new();
+        private static Random _random = new();
         private static Move _NormalMove()
         {
             // creates a random number between 0 and 2;
-            switch (rnd.Next(0, 3))
+            switch (_random.Next(0, 3))
             {
                 case 0:
                     return Move.Rock;
